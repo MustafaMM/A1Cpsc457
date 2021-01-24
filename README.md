@@ -11,7 +11,14 @@ Instead of storing really large files in your directory, and risking
 running out of quota, you can use this `dup.py` to generate large
 input to your program.
 
-It is a simple python program that accepts a single argument "N". The argument  is a number of bytes to generate. `dup.py` reads in data from stdin, byte by byte, and outputs the data to stdout. It always outputs N bytes. If the data on stdin is bigger than N, only first N bytes are copied. If the data on stdin is shorten than N, the utility then repeats the data, until N bytes are generated.
+`dup2.py` is a simple python program that accepts a single command
+line argument `N`, which indicates the number of bytes that the script
+will generate on standard output. `dup.py` reads in data from stdin,
+byte by byte, and outputs the data to stdout. It always outputs N
+bytes. If the data on stdin is bigger than N bytes, only first N bytes
+are copied. If the data on stdin is shorter than N, the script will
+repeat the input data, until N bytes are generated. Example: ``` $
+echo "hello." | ./dup.py 10 hello.  hel ```
 
 Here is an example of how to feed 2GB of data to your program, generated
 by repeating `t3.txt`:
